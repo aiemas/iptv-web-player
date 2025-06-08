@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>IPTV Player</title>
+</head>
+<body>
+  <h2>IPTV M3U8 Player</h2>
+  <input type="text" id="m3u8link" placeholder="Incolla qui il link M3U8" style="width: 80%;" />
+  <button onclick="playStream()">Riproduci</button>
+  <br /><br />
+  <video id="video" width="640" height="360" controls></video>
+
+  <script>
+    function playStream() {
+      const link = document.getElementById("m3u8link").value;
+      const video = document.getElementById("video");
+      video.src = "proxy.php?url=" + encodeURIComponent(link);
+      video.play();
+    }
+  </script>
+</body>
+</html>
